@@ -697,40 +697,6 @@
     grid-row-start: 1;
   }
 
-  .container {
-    width: 100%;
-  }
-
-  @media (min-width: 40rem) {
-    .container {
-      max-width: 40rem;
-    }
-  }
-
-  @media (min-width: 48rem) {
-    .container {
-      max-width: 48rem;
-    }
-  }
-
-  @media (min-width: 64rem) {
-    .container {
-      max-width: 64rem;
-    }
-  }
-
-  @media (min-width: 80rem) {
-    .container {
-      max-width: 80rem;
-    }
-  }
-
-  @media (min-width: 96rem) {
-    .container {
-      max-width: 96rem;
-    }
-  }
-
   .mx-auto {
     margin-inline: auto;
   }
@@ -2118,10 +2084,6 @@
     padding-block: calc(var(--spacing) * 12);
   }
 
-  .py-20 {
-    padding-block: calc(var(--spacing) * 20);
-  }
-
   .py-24 {
     padding-block: calc(var(--spacing) * 24);
   }
@@ -2792,10 +2754,6 @@
     outline-style: none;
   }
 
-  .paused {
-    animation-play-state: paused;
-  }
-
   @media (hover: hover) {
     .group-hover\:w-full:is(:where(.group):hover *) {
       width: 100%;
@@ -3331,13 +3289,6 @@
   @media (min-width: 48rem) {
     .md\:px-20 {
       padding-inline: calc(var(--spacing) * 20);
-    }
-  }
-
-  @media (min-width: 48rem) {
-    .md\:text-4xl {
-      font-size: var(--text-4xl);
-      line-height: var(--tw-leading, var(--text-4xl--line-height));
     }
   }
 

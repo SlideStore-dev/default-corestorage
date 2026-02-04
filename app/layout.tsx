@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   title: "CORE STORAGE",
   description: "Storage that understands your data",
   icons: {
-    icon: "favicon.svg"
+    icon: "infinity.png"
   },
 };
 
