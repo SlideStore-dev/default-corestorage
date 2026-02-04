@@ -193,10 +193,10 @@ const [formData, setFormData] = useState({ name: "", email: "", phone: "", addre
 
             {/* USE CASES SECTION */}
             <div className="grid grid-cols-2 gap-3 pt-4">
-                <UseCaseCard icon={<Home size={18}/>} title="Home NAS" />
-                <UseCaseCard icon={<Briefcase size={18}/>} title="Small Office Storage"  />
-                <UseCaseCard icon={<Play size={18}/>} title="Media Server"  />
-                <UseCaseCard icon={<CloudOff size={18}/>} title="Backup Appliance" />
+                <UseCaseCard icon={<Home size={18}/>} title="Home NAS" desc="Perfect for home storage" />
+                <UseCaseCard icon={<Briefcase size={18}/>} title="Small Office Storage" desc="Highly available and usable for Office work" />
+                <UseCaseCard icon={<Play size={18}/>} title="Media Server" desc="Optimal storage for content related workflows"  />
+                <UseCaseCard icon={<CloudOff size={18}/>} title="Backup Appliance" desc="Reliable and sustainable backup" />
             </div>
           </header>
 

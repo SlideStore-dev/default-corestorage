@@ -1,16 +1,19 @@
 "use client";
+
 import React from "react";
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 import { 
   Shield, Zap, ArrowRight, Lock, 
   Eye, Cpu, CloudOff, TrendingDown,
   Box, Sparkles, HardDrive
 } from "lucide-react";
 import LiveBenchmarking from "./livebenchmarking";
-
 import Link from "next/link";
 
-const containerVariants = {
+// ----------------------------
+// VARIANTS
+// ----------------------------
+const containerVariants: Variants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
@@ -18,29 +21,65 @@ const containerVariants = {
   }
 };
 
-const itemVariants = {
+const itemVariants: Variants = {
   hidden: { opacity: 0, y: 30 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } }
+  visible: { 
+    opacity: 1, 
+    y: 0, 
+    transition: { duration: 0.6, ease: "easeOut" } // Framer Motion-compliant
+  }
 };
 
+// ----------------------------
+// FEATURE CARD COMPONENT
+// ----------------------------
+function FeatureCard({ icon, title, desc }: { icon: React.ReactNode, title: string, desc: string }) {
+  return (
+    <motion.div 
+      whileHover={{ y: -5 }}
+      className="p-8 rounded-3xl border border-slate-100 hover:shadow-xl hover:shadow-blue-500/5 transition-all bg-white"
+    >
+      <div className="mb-6">{icon}</div>
+      <h4 className="text-lg font-bold mb-2">{title}</h4>
+      <p className="text-slate-500 text-sm leading-relaxed">{desc}</p>
+    </motion.div>
+  );
+}
+
+// ----------------------------
+// MAIN COMPONENT
+// ----------------------------
 export default function ArchitectureComparison() {
   return (
-      <section className="pt-15 pb-32 px-6 md:px-20 bg-white text-slate-900 overflow-hidden">
+    <section className="pt-15 pb-32 px-6 md:px-20 bg-white text-slate-900 overflow-hidden">
       <div className="max-w-7xl mx-auto">
         
         {/* HERO HEADER */}
         <motion.div 
-          initial="hidden" whileInView="visible" variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          variants={containerVariants}
           className="text-center mb-32"
         >
-          <motion.span variants={itemVariants} className="px-4 py-1.5 rounded-full bg-blue-50 text-blue-600 text-xs font-bold tracking-widest uppercase mb-6 inline-block">
+          <motion.span 
+            variants={itemVariants} 
+            className="px-4 py-1.5 rounded-full bg-blue-50 text-blue-600 text-xs font-bold tracking-widest uppercase mb-6 inline-block"
+          >
             Storage Without the Stress
           </motion.span>
-          <motion.h2 variants={itemVariants} className="text-6xl md:text-8xl font-black tracking-tight mb-8">
+          <motion.h2 
+            variants={itemVariants} 
+            className="text-6xl md:text-8xl font-black tracking-tight mb-8"
+          >
             Own Your Data. <br/>
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-400 italic">Delete the Bills.</span>
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-400 italic">
+              Delete the Bills.
+            </span>
           </motion.h2>
-          <motion.p variants={itemVariants} className="text-xl text-slate-500 max-w-2xl mx-auto font-light leading-relaxed">
+          <motion.p 
+            variants={itemVariants} 
+            className="text-xl text-slate-500 max-w-2xl mx-auto font-light leading-relaxed"
+          >
             Stop paying monthly "rent" to big tech just to look at your own files. 
             Core Storage gives you professional-grade hardware that pays for itself.
           </motion.p>
@@ -111,17 +150,16 @@ export default function ArchitectureComparison() {
                 <li className="flex items-center gap-2 text-sm font-medium"><CloudOff size={16}/> Works Without Internet</li>
               </ul>
             </div>
-              <button className="relative z-10 w-full py-4 bg-white text-blue-600 rounded-xl font-bold text-sm hover:bg-blue-50 transition-colors flex items-center justify-center gap-2">
-              
+            <button className="relative z-10 w-full py-4 bg-white text-blue-600 rounded-xl font-bold text-sm hover:bg-blue-50 transition-colors flex items-center justify-center gap-2">
               <Link href="/product" className="block">
                 Start Saving Now
-                </Link>
-                <ArrowRight size={18} />
-              </button>
+              </Link>
+              <ArrowRight size={18} />
+            </button>
           </motion.div>
         </div>
 
-        {/* WORKFLOWS (DOMAIN TARGETS) */}
+        {/* WORKFLOWS */}
         <div className="mb-32">
           <h3 className="text-3xl font-bold mb-12 text-center">Built For People Who Create.</h3>
           <div className="grid md:grid-cols-4 gap-6">
@@ -174,20 +212,8 @@ export default function ArchitectureComparison() {
             </motion.div>
           </div>
         </div>
+
       </div>
     </section>
-  );
-}
-
-function FeatureCard({ icon, title, desc }: any) {
-  return (
-    <motion.div 
-      whileHover={{ y: -5 }}
-      className="p-8 rounded-3xl border border-slate-100 hover:shadow-xl hover:shadow-blue-500/5 transition-all bg-white"
-    >
-      <div className="mb-6">{icon}</div>
-      <h4 className="text-lg font-bold mb-2">{title}</h4>
-      <p className="text-slate-500 text-sm leading-relaxed">{desc}</p>
-    </motion.div>
   );
 }
